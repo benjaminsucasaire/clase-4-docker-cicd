@@ -13,7 +13,7 @@ pipeline {
         }  
         stage ('install dependencia'){
             steps{
-                sh '/usr/bin/npm install'
+                sh 'which npm'
             }
         }
         stage ('test'){
