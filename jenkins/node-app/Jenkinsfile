@@ -28,5 +28,6 @@ pipeline {
                 sh 'docker build -t $APP_NAME .'
                 sh 'docker images'
             }
+        }
     }
 }
