@@ -3,7 +3,6 @@ pipeline {
     environment{
         NOMBRE='rossana'
         APELLIDO= 'suarez'
-        SECRET = credentials('TEST')
     }
     stages{
         stage ('checkout github'){
