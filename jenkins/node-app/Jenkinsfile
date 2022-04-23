@@ -6,16 +6,14 @@ pipeline {
         SECRET = credentials('TEST')
     }
     stages{
-        stage ('variables'){
+        stage ('checkout github'){
             steps{
-                echo 'variables'
-                sh 'echo $NOMBRE $APELLIDO'
+                checkout scm
             }
         }
-        stage ('SECRET'){
+        stage ('Instalar dependencias'){
             steps{
-                echo 'SECRET'
-                sh 'echo $SECRET'
+                sh 'npm install'
             }
         }
         stage ('test'){
