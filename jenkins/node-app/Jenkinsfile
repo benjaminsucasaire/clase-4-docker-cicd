@@ -1,38 +1,22 @@
 pipeline {
     agent any
     environment{
-        NOMBRE='rossana'
-        APELLIDO= 'suarez'
         APP_NAME= 'app-demo'
     }
     stages{
-        stage ('checkout github'){
-            steps{
-                checkout scm
-            }
-        }  
         stage('Install-Dependencies') {
             agent {
                 docker {
                     image 'node:erbium-alpine'
-                    args '-u root:root'
                 }           
             }
             steps {
-                    sh 'npm i'
-            }
-        }
-        stage ('test'){
-            steps{
-            catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                sh 'npm run test'
-            }
+                    sh 'npm --version'
             }
         }
         stage ('build'){
             steps{
-                sh 'docker build -t $APP_NAME -f path .'
-                sh 'docker images'
+                sh 'docker --version'
             }
         }
     }
