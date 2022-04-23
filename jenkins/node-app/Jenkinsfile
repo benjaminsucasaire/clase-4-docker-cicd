@@ -9,6 +9,11 @@ pipeline {
             steps{
                 checkout scm
             }
-        }   
+        }  
+        stage ('install dependencia'){
+            steps{
+                sh 'npm install'
+            }
+        }
     }
 }
