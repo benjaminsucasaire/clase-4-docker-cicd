@@ -13,7 +13,7 @@ pipeline {
         }  
         stage ('install dependencia'){
             steps{
-                sh 'npm install'
+                sh '/usr/bin/npm install npm install'
             }
         }
         stage ('test'){
@@ -25,7 +25,7 @@ pipeline {
         }
         stage ('build'){
             steps{
-                sh 'docker build -t $APP_NAME .'
+                sh 'docker build -t $APP_NAME -f path .'
                 sh 'docker images'
             }
         }
