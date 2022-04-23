@@ -10,27 +10,6 @@ pipeline {
             steps{
                 checkout scm
             }
-        }
-        stage ('Instalar dependencias'){
-            steps{
-                sh 'sudo docker --version'
-                sh 'npm --version'
-            }
-        }
-        stage ('test'){
-            steps{
-                echo 'unit test'
-            }     
-        }
-        stage ('build'){
-            steps{
-                echo 'build'
-            }     
-        }
-        stage ('deploy'){
-            steps{
-                echo 'deploy'
-            }     
-        }       
+        }   
     }
 }
