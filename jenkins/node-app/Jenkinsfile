@@ -13,7 +13,7 @@ pipeline {
         }
         stage ('Instalar dependencias'){
             steps{
-                sh 'docker --version'
+                sh 'sudo docker --version'
                 sh 'npm --version'
             }
         }
