@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+    environment{
+        NOMBRE='rossana'
+        APELLIDO= 'suarez'
+        SECRET = credentials('TEST')
+    }
+    stages{
+        stage ('variables'){
+            steps{
+                echo 'variables'
+                sh 'echo $NOMBRE $APELLIDO'
+            }
+        }
+        stage ('SECRET'){
+            steps{
+                echo 'SECRET'
+                sh 'echo $SECRET'
+            }
+        }
+        stage ('test'){
+            steps{
+                echo 'unit test'
+            }     
+        }
+        stage ('build'){
+            steps{
+                echo 'build'
+            }     
+        }
+        stage ('deploy'){
+            steps{
+                echo 'deploy'
+            }     
+        }       
+    }
+}
